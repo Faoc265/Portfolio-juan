@@ -1,0 +1,263 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+/* root é Raiz, e com ele voce faz as variáveis dessa forma abaixo*/
+/* e depois pode usar em qualquer lugar do css, como por exemplo: background-color: var(--primaria) */
+:root{
+    --primaria: rgb(202, 6, 6);
+    --secundaria: rgb(90, 6, 226);
+    --escuro: #0f172a;
+    --maisEscuro: #0a0f1c;
+    --claro: rgb(237, 243, 242);
+    --vidro: rgba(255, 255, 255, 0.1);
+}
+
+body{   
+    background-color: var(--escuro);
+    color: var(--claro);
+}
+
+.navegacao{
+    position: fixed;
+    background: rgba(5, 10, 22, 0.8);
+    width: 100%;   
+    z-index: 100;
+    padding: 1.5rem;
+}
+
+.menu{
+    /* o display: flex; faz com que os filhos fiquem lado a lado*/
+    display: flex;
+    list-style: none;
+    gap: 3rem;
+    justify-content: center;
+}
+
+.menu-link{
+    /* o text-decoration: none; tira o sublinhado do link*/
+    text-decoration: none;
+    color: var(--claro);
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem 0;  
+}
+/* faz uma linha em baixo do nome do link */
+.menu-link::after{
+    content: '';
+    height: 3px;
+    width: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(90deg, var(--primaria), var(--secundaria));
+    transition: width 0.5s ease;
+}
+.menu-link:hover::after{
+    width: 100%;
+}
+
+.cabecalho{
+    /*min-height: 100vh; faz com que o cabeçalho ocupe toda a tela*/
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.foto-perfil{
+    width: 300px;
+    height: 300px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    border-radius: 50%;
+    border: 4px solid var(--vidro);
+    animation: flutuar 5s ease-in-out infinite;
+    /* faz com que a imagem fique flutuando, precisa do keyframe que está na linha 254 do código*/
+}
+
+h1{
+    font-size: 3.5rem;
+    color: var(--primaria);
+    font-weight: bold;
+    margin: 10px;
+    text-shadow: 1px 1px 4px rgba(5, 10, 22, 0.8); 
+}
+
+.cabecalho-sub-titulo{
+    font-size: 2rem;
+    color: var(--claro);
+}
+
+.sobre{
+    padding: 6rem 2rem;
+}
+
+.sobre-titulo{
+    font-size: 3rem;
+    color: var(--claro);
+    text-align: center;
+    margin-bottom: 2px;
+}
+
+.sobre-caixa{
+    padding: 2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    border-radius: 16px;
+    border: 1px solid var(--vidro);
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.sobre-texto{
+    text-align: center;
+    font-size: 1rem;
+}
+
+.projetos{
+    padding: 6rem 2rem;
+
+}
+.projetos-caixa{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem; 
+    max-width: 1200px;
+    margin: 0 auto;
+   
+}
+
+.projetos-card{
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--vidro);
+    /* esconde as sobras da imagem*/
+    overflow: hidden;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.projetos-titulo{
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    
+}
+
+.projetos-card:hover{
+    box-shadow: 0 10px 20px -10px var(--primaria);
+    transform: translateY(-10px) scale(1.03);
+}
+
+.projetos-imagem{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.caixa-textos-projetos{
+    padding: 1rem;
+}
+
+.paragrafo-projeto{
+    color: rgba(226, 232, 240, 0.8);
+    line-height: 1.25rem;
+
+}
+
+.info-projeto{
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.contatos{
+    padding: 6rem 2rem;
+
+}
+
+.contatos-titulos{
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    
+}
+
+.formulario-contato{
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    padding: 2rem;
+    border: 1px solid var(--vidro);
+    border-radius: 16px;
+    box-shadow: 0 10px 20px -10px var(--secundaria);
+
+}
+
+.campo-form{
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: var(--claro);
+    border: 1px solid var(--vidro);
+}
+
+.campo-form:focus{
+    border-color: 1px solid var(--secundaria);
+    box-shadow: 0 0 5px var(--secundaria);
+}
+
+.grupo-form{
+    margin-bottom: 1.5rem;
+}
+
+.botao-form{
+    color: var(--claro);
+    background: linear-gradient(45deg, rgb(1, 110, 1), green);
+    padding: 1rem;
+    padding: 1rem 2rem; 
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: bold;
+    width: 100%;
+    transition: all 0.5s ease;  
+}
+
+.botao-form:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 5px 15px -10px var(--vidro);
+}
+
+.particulas{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.5;
+    background:
+    radial-gradient(circle at 10% 20%, var(--primaria) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, var(--secundaria) 0%, transparent 20%)
+}
+
+@keyframes flutuar{
+    0%, 100%{
+        transform: translateY(0);
+    }
+
+    50%{
+        transform: translateY(-15px);
+    }
+}
